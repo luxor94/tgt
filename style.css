@@ -24,6 +24,24 @@ h4 {
     width: 290px;
 }
 
+.block {
+    display: flex;
+}
+
+.block div {
+    margin: 20px;
+    border: 1px solid black;
+}
+
+.forms {
+    display: flex;
+}
+
+.forms form {
+    border: 1px solid black;
+    padding: 10px;
+}
+
 .button {
     justify-content: center;
     display: flex;
