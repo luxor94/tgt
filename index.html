@@ -15,24 +15,52 @@
     var xl2json = new ExcelToJSON();
     xl2json.parseExcel(files[0]);
   }
+  function handleFileSelectBase(evt) {
+    var files = evt.target.files; // FileList object
+    var xl2json = new ExcelToJSON_Base();
+    xl2json.parseExcel(files[0]);
+    console.log('base')
+  }
 </script>
 <main>
   <div class="instructions">
     <div class="inner-block">
       <h3>Шаблон</h3>
       
-      <h4>Скачать шаблон</h4><a href="list.xlsx"> Скачать</a>
-      <h4>Скопировать информацию в шаблон</h4>
-      <img src="./img/1.jpg" alt="" width="1350px">
+      <div><a href="list.xlsx"> Скачать шаблон УПД</a></div>
+      <div><a href="base.xlsx"> Скачать шаблок веса и ТНВЭД</a></div>
+      
+      <div class="block">
+        <div class="first">
+          <h4>Скопировать информацию в шаблон</h4>
+          <img src="./img/1.jpg" alt="" width="1000px">
+        </div>
+        <div class="second">
+          <h4>Заполнить вес и ТНВЭД</h4>
+          <img src="./img/2.jpg" alt="" width="400px">
+        </div>
+
+      </div>
+
       <li>загрузить файл</li>
       <li>нажать кнопку обработать</li>
       <li>сохранить готовоый файл</li>
   </div>
-  <div class="button"> 
+  <div class="forms">
     <form  enctype="multipart/form-data">
-      <input  class="input" id="upload" type=file  name="files[]">
+      <p>База данных с весом и кодом:</p>
+      <input class="input" id="upload_base" type=file  name="files[]">
+    </form>
+    <div class="button"> 
+      <form enctype="multipart/form-data">
+        <p>Загрузка заполнено шаблона УПД:</p>
+        <input  class="input" id="upload" type=file  name="files[]">
+    </form>
+  </div>
+  <form action="">
+    <input type="button" onclick="replacement()" value="Обработать">
   </form>
-  <input type="button" onclick="replacement()" value="Обработать">
+
   </div>
   </main>
   
@@ -43,6 +71,7 @@
     
     <script>
         document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+        document.getElementById('upload_base').addEventListener('change', handleFileSelectBase, false);
     </script>
 <script type="text/javascript" src = "./js/script.js" defer></script>
  </body>
